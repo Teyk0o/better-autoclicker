@@ -3,7 +3,7 @@ if(!CCSE.postLoadHooks) CCSE.postLoadHooks = [];
 CCSE.name = 'CCSE';
 CCSE.version = '2.035';
 CCSE.Steam = false;
-CCSE.GameVersion = CCSE.Steam ? '2.053' : '2.052';
+CCSE.GameVersion = '2.053';
 
 CCSE.launch = function(){
 	CCSE.loading = 1;
@@ -119,11 +119,6 @@ CCSE.launch = function(){
 		CCSE.loading = 0;
 		
 		if(CCSE.postLoadHooks) for(var i in CCSE.postLoadHooks) CCSE.postLoadHooks[i]();
-		if(CCSE.Steam){
-			Game.loadModData = CCSE.GameLoadModData;
-			CCSE.LaunchOtherMods();
-			if(CCSE.gameHasLoadedSave) Game.loadModData();
-		}
 		
 		CCSE.applyPref('showVersionNo');
 	}
@@ -285,12 +280,10 @@ CCSE.launch = function(){
 	}
 
 	CCSE.InitNote = function(){
-		if(CCSE.Steam) CCSE.iconURL = CCSE.GetModPath('CCSE') + '/CCSEicon.png';
-		else CCSE.iconURL = 'https://klattmose.github.io/CookieClicker/img/CCSEicon.png';
+		CCSE.iconURL = 'https://klattmose.github.io/CookieClicker/img/CCSEicon.png';
 		
 		CCSE.functionsTotal = (
 			141
-			+ (CCSE.Steam ? 7 : 0)
 			+ Game.ObjectsN      * 18 - 1 + 3
 			+ Game.UpgradesN     * 1  + 25
 			+ Game.AchievementsN * 1
@@ -353,51 +346,6 @@ CCSE.launch = function(){
 			// Game.UpdateMenu injection point 3
 			for(var i in Game.customMenu) Game.customMenu[i]();
 		`, 1);
-		
-		
-		// Code specific to the Steam version
-		// Might move to their own function maybe
-		if(CCSE.Steam){
-			// Steam.modsPopup
-			// This function has several functions defined within it
-			if(!Game.customModsPopup) Game.customModsPopup = [];
-			if(!Game.customModsPopupCheckModDependencies) Game.customModsPopupCheckModDependencies = []; // Return okay to have no effect
-			if(!Game.customModsPopupUpdateModList) Game.customModsPopupUpdateModList = [];
-			if(!Game.customModsPopupUpdateModOptions) Game.customModsPopupUpdateModOptions = [];
-			CCSE.SliceCodeIntoFunction('Steam.modsPopup', -1, `
-				// Steam.modsPopup injection point 0
-				for(var i in Game.customModsPopup) Game.customModsPopup[i](selectedMod, mods);
-			`);
-			CCSE.ReplaceCodeIntoFunction('Steam.modsPopup', "return okay;",
-				`// Steam.modsPopup injection point 1
-				for(var i in Game.customModsPopupCheckModDependencies) okay = Game.customModsPopupCheckModDependencies[i](okay, mod, loadedMods, selectedMod, mods);
-				`, -1);
-			CCSE.ReplaceCodeIntoFunction('Steam.modsPopup', "updateModOptions();",
-				`// Steam.modsPopup injection point 2
-				for(var i in Game.customModsPopupUpdateModList) Game.customModsPopupUpdateModList[i](selectedMod, mods);
-				`, -1);
-			CCSE.ReplaceCodeIntoFunction('Steam.modsPopup', 'else el.innerHTML=loc("Select a mod.");',
-				`// Steam.modsPopup injection point 3
-				for(var i in Game.customModsPopupUpdateModOptions) Game.customModsPopupUpdateModOptions[i](selectedMod, mods);
-				`, 1);
-			
-			// Steam.workshopPopup
-			if(!Game.customWorkshopPopup) Game.customWorkshopPopup = [];
-			if(!Game.customWorkshopPopupUpdateModDisplay) Game.customWorkshopPopupUpdateModDisplay = [];
-			if(!Game.customWorkshopPopupUpdatePublishedModsPopup) Game.customWorkshopPopupUpdatePublishedModsPopup = [];
-			CCSE.SliceCodeIntoFunction('Steam.workshopPopup', -1, `
-				// Steam.customWorkshopPopup injection point 0
-				for(var i in Game.customWorkshopPopup) Game.customWorkshopPopup[i](selectedMod, selectedModPath);
-			`);
-			CCSE.ReplaceCodeIntoFunction('Steam.workshopPopup', "Game.UpdatePrompt();",
-				`// Steam.customWorkshopPopup injection point 1
-				for(var i in Game.customWorkshopPopupUpdateModDisplay) Game.customWorkshopPopupUpdateModDisplay[i](selectedMod, el);
-				`, 1);
-			CCSE.ReplaceCodeIntoFunction('Steam.workshopPopup', "else l('modDisplay').innerHTML=`<div style=\"font-size:11px;margin:8px;\">(${loc(\"none\")})</div>`;",
-				`// Steam.customWorkshopPopup injection point 2
-				for(var i in Game.customWorkshopPopupUpdatePublishedModsPopup) Game.customWorkshopPopupUpdatePublishedModsPopup[i](response);
-				`, 1);
-		}
 		
 		
 		/*
@@ -4084,49 +4032,11 @@ CCSE.launch = function(){
 		return proceed;
 	}
 	
-	/*  Doesn't work until the mods actually get loaded in order
-	CCSE.LaunchCCSEMod = function(func){
-		if(CCSE.isLoaded) func();
-		else CCSE.postLoadHooks.push(func);
-	}*/
-	
-	if(CCSE.Steam){
-		CCSE.GetModPath = (modName) => {
-			let mod = App.mods[modName];
-			let pos = mod.dir.lastIndexOf('\\');
-			if(pos == -1) return '../mods/' + (mod.local ? 'local' : 'workshop') + '/' + mod.path;
-			else return '../mods/' + mod.dir.substring(pos + 1);
-		}
-		
-		CCSE.GetModFolder = (modName) => App.mods[modName].path;
-		
-		CCSE.MenuHelper.AutoVersion = (mod) => {
-			let func = function(){
-				let modInfo = Steam.mods[mod.id].info;
-				Game.customStatsMenu.push(function(){
-					CCSE.AppendStatsVersionNumber(modInfo.Name, modInfo.ModVersion);
-				});
-			}
-			
-			if(CCSE.isLoaded) func();
-			else CCSE.postLoadHooks.push(func);
-		}
-	}
-	
-	
 	/*=====================================================================================
 	Start your engines
 	=======================================================================================*/
 	if(CCSE.ConfirmGameVersion(CCSE.name, CCSE.version, CCSE.GameVersion)){
 		Game.registerMod(CCSE.name, CCSE);
-		
-		if(CCSE.Steam){
-			CCSE.LaunchOtherMods = Game.launchMods;
-			Game.launchMods = CCSE.init;
-			
-			CCSE.GameLoadModData = Game.loadModData;
-			Game.loadModData = function(){CCSE.gameHasLoadedSave=1;}
-		}
 	}
 }
 
