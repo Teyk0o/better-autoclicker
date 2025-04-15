@@ -2,7 +2,7 @@ if(CCSE === undefined) var CCSE = {};
 if(!CCSE.postLoadHooks) CCSE.postLoadHooks = [];
 CCSE.name = 'CCSE';
 CCSE.version = '2.035';
-CCSE.Steam = (typeof Steam !== 'undefined');
+CCSE.Steam = false;
 CCSE.GameVersion = CCSE.Steam ? '2.053' : '2.052';
 
 CCSE.launch = function(){
