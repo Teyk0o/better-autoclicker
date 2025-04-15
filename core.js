@@ -14,7 +14,7 @@
  */
 
 if(BetterAutoClicker === undefined) var BetterAutoClicker = {};
-if(typeof CCSE == 'undefined') Game.LoadMod('https://cdn.jsdelivr.net/gh/Teyk0o/better-autoclicker@master/CCSE/main.js');
+if(typeof CCSE == 'undefined') Game.LoadMod('https://raw.githack.com/Teyk0o/better-autoclicker/master/CCSE/main.js');
 
 BetterAutoClicker.name = "Better AutoClicker";
 BetterAutoClicker.version = "1.0";
