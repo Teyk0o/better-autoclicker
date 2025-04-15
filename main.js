@@ -14,7 +14,6 @@
  */
 
 if(BetterAutoClicker === undefined) var BetterAutoClicker = {};
-if(typeof CCSE == 'undefined') Game.LoadMod('https://cdn.jsdelivr.net/gh/Teyk0o/better-autoclicker@master/CCSE/main.js');
 
 // Basic information about the mod
 BetterAutoClicker.name = "Better AutoClicker";
@@ -22,7 +21,7 @@ BetterAutoClicker.version = "0.0.0"; // Initial placeholder version
 BetterAutoClicker.GameVersion = "2.053";
 
 // URL to the core.js file
-BetterAutoClicker.coreUrl = "https://cdn.jsdelivr.net/gh/Teyk0o/better-autoclicker@master/core.js";
+BetterAutoClicker.coreUrl = "https://raw.githack.com/Teyk0o/better-autoclicker/master/core.js";
 
 // GitHub API URL to check for latest release/tag
 BetterAutoClicker.apiUrl = "https://api.github.com/repos/Teyk0o/better-autoclicker/tags";
@@ -37,7 +36,7 @@ BetterAutoClicker.init = function() {
     this.getCurrentVersion(() => {
         // Then load the core mod code
         console.log("BetterAutoClicker: Loading version " + this.version);
-        Game.LoadMod(this.coreUrl + "?v=" + this.version + "&ccse=" + CCSE.version + "&game=" + this.GameVersion + "&t=" + Date.now());
+        Game.LoadMod(this.coreUrl + "?v=" + this.version + "&game=" + this.GameVersion + "&t=" + Date.now());
 
         // Setup periodic update checks
         setInterval(function() {
@@ -127,14 +126,6 @@ BetterAutoClicker.notifyUpdate = function(newVersion) {
 
 // Initialize the loader
 if (!BetterAutoClicker.initialized) {
-    if (CCSE && CCSE.isLoaded) {
-        BetterAutoClicker.init();
-    } else {
-        if (!CCSE) var CCSE = {};
-        if (!CCSE.postLoadHooks) CCSE.postLoadHooks = [];
-        CCSE.postLoadHooks.push(function() {
-            BetterAutoClicker.init();
-        });
-    }
+    BetterAutoClicker.init();
     BetterAutoClicker.initialized = true;
 }
