@@ -265,7 +265,7 @@ BetterAutoClicker.launch = function() {
             speedInput.style.marginLeft = '5px';
             speedInput.addEventListener('change', () => {
                 const newSpeed = parseInt(speedInput.value, 10);
-                if (newSpeed >= 1 && newSpeed <= 100) {
+                if (newSpeed >= 1 && newSpeed <= 10000) {
                     this.clicksPerSecond = newSpeed;
                     if (this.isActive) {
                         // Update currently running interval
