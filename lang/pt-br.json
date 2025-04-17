@@ -70,5 +70,15 @@
   "chocolateEggSaved": "Ovo de Chocolate encontrado – guardando para ascensão",
   "chocolateEggAscensionBought": "Ovo de Chocolate comprado automaticamente antes da ascensão",
   "chocolateEggStrategyExplanationAscension": "Esta estratégia salvará seu Ovo de Chocolate para a ascensão. O mod comprará automaticamente o ovo logo antes de você ascender para maximizar os ganhos de prestígio.",
-  "chocolateEggStrategyExplanationImmediate": "Esta estratégia comprará o Ovo de Chocolate assim que ele se tornar disponível, proporcionando um impulso imediato de biscoitos."
+  "chocolateEggStrategyExplanationImmediate": "Esta estratégia comprará o Ovo de Chocolate assim que ele se tornar disponível, proporcionando um impulso imediato de biscoitos.",
+  "latestVersion": "mais recente",
+  "updateAvailable": "Atualização disponível!",
+  "updateAvailableDesc": "Uma nova versão ({0}) do Better AutoClicker está disponível. Reinicie o jogo para atualizar o mod.",
+  "fortuneOption": "Clique automático em biscoitos da sorte",
+  "fortuneEnabled": "Clique automático em biscoitos da sorte ativado",
+  "fortuneDisabled": "Clique automático em biscoitos da sorte desativado",
+  "fortunesWill": "Os biscoitos da sorte serão clicados automaticamente",
+  "fortunesWont": "Os biscoitos da sorte não serão clicados automaticamente",
+  "fortuneClicked": "Biscoito da sorte clicado!",
+  "fortuneClickedDesc": "Um biscoito da sorte foi clicado automaticamente"
 }

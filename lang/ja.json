@@ -70,5 +70,15 @@
   "chocolateEggSaved": "チョコレートエッグを発見 – 転生のために保存中",
   "chocolateEggAscensionBought": "転生前にチョコレートエッグを自動購入しました",
   "chocolateEggStrategyExplanationAscension": "この戦略は、チョコレートエッグを転生のために保存します。MODは、転生直前にエッグを自動で購入し、名声の獲得を最大化します。",
-  "chocolateEggStrategyExplanationImmediate": "この戦略は、チョコレートエッグが利用可能になった瞬間に購入し、即座にクッキーを増加させます。"
+  "chocolateEggStrategyExplanationImmediate": "この戦略は、チョコレートエッグが利用可能になった瞬間に購入し、即座にクッキーを増加させます。",
+  "latestVersion": "最新",
+  "updateAvailable": "アップデートが利用可能！",
+  "updateAvailableDesc": "Better AutoClicker の新バージョン ({0}) が利用可能です。MODを更新するにはゲームを再起動してください。",
+  "fortuneOption": "おみくじ自動クリック",
+  "fortuneEnabled": "おみくじ自動クリックが有効",
+  "fortuneDisabled": "おみくじ自動クリックが無効",
+  "fortunesWill": "おみくじは自動でクリックされます",
+  "fortunesWont": "おみくじは自動でクリックされません",
+  "fortuneClicked": "おみくじクリック！",
+  "fortuneClickedDesc": "おみくじクッキーが自動的にクリックされました"
 }

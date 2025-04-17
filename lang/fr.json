@@ -68,5 +68,15 @@
   "chocolateEggWillBuy": "L'Œuf en Chocolat sera acheté immédiatement",
   "chocolateEggBought": "Œuf en Chocolat acheté automatiquement !",
   "chocolateEggSaved": "Œuf en Chocolat trouvé - réservé pour l'ascension",
-  "chocolateEggAscensionBought": "Œuf en Chocolat acheté auto avant ascension"
+  "chocolateEggAscensionBought": "Œuf en Chocolat acheté auto avant ascension",
+  "latestVersion": "dernière",
+  "updateAvailable": "Mise à jour disponible !",
+  "updateAvailableDesc": "Une nouvelle version ({0}) de Better AutoClicker est disponible. Redémarre le jeu pour mettre à jour le mod.",
+  "fortuneOption": "Clic automatique des fortunes",
+  "fortuneEnabled": "Clic automatique des fortunes activé",
+  "fortuneDisabled": "Clic automatique des fortunes désactivé",
+  "fortunesWill": "Les fortunes seront cliquées automatiquement",
+  "fortunesWont": "Les fortunes ne seront pas cliquées automatiquement",
+  "fortuneClicked": "Fortune cliquée !",
+  "fortuneClickedDesc": "Un biscuit fortune a été cliqué automatiquement"
 }

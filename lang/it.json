@@ -70,5 +70,15 @@
   "chocolateEggSaved": "Uovo di Cioccolato trovato – conservato per l'ascensione",
   "chocolateEggAscensionBought": "Uovo di Cioccolato acquistato automaticamente prima dell'ascensione",
   "chocolateEggStrategyExplanationAscension": "Questa strategia salverà il tuo Uovo di Cioccolato per l'ascensione. Il mod acquisterà automaticamente l'uovo appena prima che tu ascenda per massimizzare i guadagni di prestigio.",
-  "chocolateEggStrategyExplanationImmediate": "Questa strategia acquisterà l'Uovo di Cioccolato non appena sarà disponibile, dandoti un immediato aumento di biscotti."
+  "chocolateEggStrategyExplanationImmediate": "Questa strategia acquisterà l'Uovo di Cioccolato non appena sarà disponibile, dandoti un immediato aumento di biscotti.",
+  "latestVersion": "ultima",
+  "updateAvailable": "Aggiornamento disponibile!",
+  "updateAvailableDesc": "È disponibile una nuova versione ({0}) di Better AutoClicker. Riavvia il gioco per aggiornare la mod.",
+  "fortuneOption": "Clic automatico delle fortune",
+  "fortuneEnabled": "Clic automatico delle fortune abilitato",
+  "fortuneDisabled": "Clic automatico delle fortune disabilitato",
+  "fortunesWill": "Le fortune saranno cliccate automaticamente",
+  "fortunesWont": "Le fortune non saranno cliccate automaticamente",
+  "fortuneClicked": "Fortuna cliccata!",
+  "fortuneClickedDesc": "Un biscotto della fortuna è stato cliccato automaticamente"
 }

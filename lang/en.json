@@ -70,5 +70,15 @@
   "chocolateEggSaved": "Found Chocolate Egg - saving for ascension",
   "chocolateEggAscensionBought": "Auto-bought Chocolate Egg before ascension",
   "chocolateEggStrategyExplanationAscension": "This strategy will save your Chocolate Egg for ascension. The mod will automatically purchase the egg right before you ascend to maximize prestige gains. If you have the 'Earth Shatterer' dragon aura, all buildings will be automatically sold before ascension (with this aura, buildings sell for <b>50%</b> instead of 25%).",
-  "chocolateEggStrategyExplanationImmediate": "This strategy will buy the Chocolate Egg as soon as it becomes available, giving you an immediate cookie boost."
+  "chocolateEggStrategyExplanationImmediate": "This strategy will buy the Chocolate Egg as soon as it becomes available, giving you an immediate cookie boost.",
+  "latestVersion": "latest",
+  "updateAvailable": "Update available!",
+  "updateAvailableDesc": "A new version ({0}) of Better AutoClicker is available. Restart the game to update the mod.",
+  "fortuneOption": "Auto-click fortunes",
+  "fortuneEnabled": "Fortune auto-clicking enabled",
+  "fortuneDisabled": "Fortune auto-clicking disabled",
+  "fortunesWill": "Fortunes will be automatically clicked",
+  "fortunesWont": "Fortunes won't be automatically clicked",
+  "fortuneClicked": "Fortune clicked!",
+  "fortuneClickedDesc": "A fortune cookie has been automatically clicked"
 }

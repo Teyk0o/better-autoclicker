@@ -70,5 +70,15 @@
   "chocolateEggSaved": "Huevo de Chocolate encontrado – guardado para la ascensión",
   "chocolateEggAscensionBought": "Huevo de Chocolate comprado automáticamente antes de la ascensión",
   "chocolateEggStrategyExplanationAscension": "Esta estrategia guardará tu Huevo de Chocolate para la ascensión. El mod comprará el huevo automáticamente justo antes de que asciendas para maximizar las ganancias de prestigio.",
-  "chocolateEggStrategyExplanationImmediate": "Esta estrategia comprará el Huevo de Chocolate tan pronto como esté disponible, dándote un aumento inmediato de galletas."
+  "chocolateEggStrategyExplanationImmediate": "Esta estrategia comprará el Huevo de Chocolate tan pronto como esté disponible, dándote un aumento inmediato de galletas.",
+  "latestVersion": "última",
+  "updateAvailable": "¡Actualización disponible!",
+  "updateAvailableDesc": "Hay una nueva versión ({0}) de Better AutoClicker disponible. Reinicia el juego para actualizar el mod.",
+  "fortuneOption": "Clic automático en galletas de la fortuna",
+  "fortuneEnabled": "Clic automático en galletas de la fortuna activado",
+  "fortuneDisabled": "Clic automático en galletas de la fortuna desactivado",
+  "fortunesWill": "Las galletas de la fortuna se harán clic automáticamente",
+  "fortunesWont": "Las galletas de la fortuna no se harán clic automáticamente",
+  "fortuneClicked": "¡Galleta de la fortuna clicada!",
+  "fortuneClickedDesc": "Se ha hecho clic automáticamente en una galleta de la fortuna"
 }

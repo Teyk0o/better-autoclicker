@@ -70,5 +70,15 @@
   "chocolateEggSaved": "发现巧克力蛋 – 为转生而保存",
   "chocolateEggAscensionBought": "在转生前自动购买了巧克力蛋",
   "chocolateEggStrategyExplanationAscension": "该策略将把你的巧克力蛋保存到转生。该mod将在你转生前自动购买巧克力蛋，以最大化声望收益。",
-  "chocolateEggStrategyExplanationImmediate": "该策略将在巧克力蛋可用时立即购买，为你提供即时的饼干提升。"
+  "chocolateEggStrategyExplanationImmediate": "该策略将在巧克力蛋可用时立即购买，为你提供即时的饼干提升。",
+  "latestVersion": "最新",
+  "updateAvailable": "有可用更新！",
+  "updateAvailableDesc": "Better AutoClicker 有新版本 ({0}) 可用。重启游戏以更新模组。",
+  "fortuneOption": "自动点击幸运饼干",
+  "fortuneEnabled": "已启用幸运饼干自动点击",
+  "fortuneDisabled": "已禁用幸运饼干自动点击",
+  "fortunesWill": "幸运饼干将自动点击",
+  "fortunesWont": "幸运饼干将不会自动点击",
+  "fortuneClicked": "幸运饼干已点击！",
+  "fortuneClickedDesc": "一个幸运饼干已被自动点击"
 }

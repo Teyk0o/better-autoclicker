@@ -70,5 +70,15 @@
   "chocolateEggSaved": "Nalezeno čokoládové vejce – uloženo pro vzestup",
   "chocolateEggAscensionBought": "Automaticky zakoupeno čokoládové vejce před vzestupem",
   "chocolateEggStrategyExplanationAscension": "Tato strategie uloží vaše čokoládové vejce na vzestup. Mod automaticky koupí vejce těsně před vaším vzestupem, aby maximalizoval zisky prestiže.",
-  "chocolateEggStrategyExplanationImmediate": "Tato strategie koupí čokoládové vejce, jakmile bude dostupné, čímž vám poskytne okamžitý nárůst sušenek."
+  "chocolateEggStrategyExplanationImmediate": "Tato strategie koupí čokoládové vejce, jakmile bude dostupné, čímž vám poskytne okamžitý nárůst sušenek.",
+  "latestVersion": "nejnovější",
+  "updateAvailable": "Dostupná aktualizace!",
+  "updateAvailableDesc": "Je dostupná nová verze ({0}) Better AutoClicker. Restartujte hru pro aktualizaci módu.",
+  "fortuneOption": "Automatické klikání na věštby",
+  "fortuneEnabled": "Automatické klikání na věštby povoleno",
+  "fortuneDisabled": "Automatické klikání na věštby zakázáno",
+  "fortunesWill": "Věštby budou automaticky kliknuty",
+  "fortunesWont": "Věštby nebudou automaticky kliknuty",
+  "fortuneClicked": "Věštba kliknuta!",
+  "fortuneClickedDesc": "Věštba byla automaticky kliknuta"
 }

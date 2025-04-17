@@ -70,5 +70,15 @@
   "chocolateEggSaved": "초콜릿 에그 발견 – 승천을 위해 저장됨",
   "chocolateEggAscensionBought": "승천 전에 초콜릿 에그 자동 구매됨",
   "chocolateEggStrategyExplanationAscension": "이 전략은 초콜릿 에그를 승천을 위해 저장합니다. 모드는 승천 직전에 자동으로 에그를 구매하여 명성 증가를 극대화합니다.",
-  "chocolateEggStrategyExplanationImmediate": "이 전략은 초콜릿 에그가 사용 가능해지자마자 즉시 구매하여 즉각적인 쿠키 부스트를 제공합니다."
+  "chocolateEggStrategyExplanationImmediate": "이 전략은 초콜릿 에그가 사용 가능해지자마자 즉시 구매하여 즉각적인 쿠키 부스트를 제공합니다.",
+  "latestVersion": "최신",
+  "updateAvailable": "업데이트 가능!",
+  "updateAvailableDesc": "Better AutoClicker의 새 버전 ({0})이 있습니다. 모드를 업데이트하려면 게임을 다시 시작하세요.",
+  "fortuneOption": "행운 쿠키 자동 클릭",
+  "fortuneEnabled": "행운 쿠키 자동 클릭 활성화됨",
+  "fortuneDisabled": "행운 쿠키 자동 클릭 비활성화됨",
+  "fortunesWill": "행운 쿠키가 자동으로 클릭됩니다",
+  "fortunesWont": "행운 쿠키가 자동으로 클릭되지 않습니다",
+  "fortuneClicked": "행운 클릭됨!",
+  "fortuneClickedDesc": "행운 쿠키가 자동으로 클릭되었습니다"
 }

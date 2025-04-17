@@ -70,5 +70,15 @@
   "chocolateEggSaved": "Znaleziono Czekoladowe Jajko – zapisano na awans",
   "chocolateEggAscensionBought": "Automatycznie kupiono Czekoladowe Jajko przed awansem",
   "chocolateEggStrategyExplanationAscension": "Ta strategia zachowa Twoje Czekoladowe Jajko na awans. Mod automatycznie kupi jajko tuż przed awansem, aby zmaksymalizować zyski prestiżu.",
-  "chocolateEggStrategyExplanationImmediate": "Ta strategia kupi Czekoladowe Jajko, gdy tylko stanie się dostępne, zapewniając natychmiastowy wzrost ciasteczek."
+  "chocolateEggStrategyExplanationImmediate": "Ta strategia kupi Czekoladowe Jajko, gdy tylko stanie się dostępne, zapewniając natychmiastowy wzrost ciasteczek.",
+  "latestVersion": "najnowsza",
+  "updateAvailable": "Dostępna aktualizacja!",
+  "updateAvailableDesc": "Nowa wersja ({0}) Better AutoClicker jest dostępna. Zrestartuj grę, aby zaktualizować mod.",
+  "fortuneOption": "Automatyczne klikanie ciastek z wróżbą",
+  "fortuneEnabled": "Automatyczne klikanie wróżb włączone",
+  "fortuneDisabled": "Automatyczne klikanie wróżb wyłączone",
+  "fortunesWill": "Wróżby będą klikalne automatycznie",
+  "fortunesWont": "Wróżby nie będą klikalne automatycznie",
+  "fortuneClicked": "Wróżba kliknięta!",
+  "fortuneClickedDesc": "Ciastko z wróżbą zostało automatycznie kliknięte"
 }

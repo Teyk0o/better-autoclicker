@@ -70,5 +70,15 @@
   "chocolateEggSaved": "Schokoladenei gefunden – wird für Aufstieg gespeichert",
   "chocolateEggAscensionBought": "Schokoladenei automatisch vor dem Aufstieg gekauft",
   "chocolateEggStrategyExplanationAscension": "Diese Strategie speichert dein Schokoladenei für den Aufstieg. Das Mod wird das Ei automatisch kurz vor deinem Aufstieg kaufen, um die Prestigegewinne zu maximieren.",
-  "chocolateEggStrategyExplanationImmediate": "Diese Strategie kauft das Schokoladenei sofort, sobald es verfügbar ist, und verschafft dir einen sofortigen Keks-Schub."
+  "chocolateEggStrategyExplanationImmediate": "Diese Strategie kauft das Schokoladenei sofort, sobald es verfügbar ist, und verschafft dir einen sofortigen Keks-Schub.",
+  "latestVersion": "neueste",
+  "updateAvailable": "Update verfügbar!",
+  "updateAvailableDesc": "Eine neue Version ({0}) von Better AutoClicker ist verfügbar. Starte das Spiel neu, um das Mod zu aktualisieren.",
+  "fortuneOption": "Glückskekse automatisch anklicken",
+  "fortuneEnabled": "Automatisches Anklicken von Glückskeksen aktiviert",
+  "fortuneDisabled": "Automatisches Anklicken von Glückskeksen deaktiviert",
+  "fortunesWill": "Glückskekse werden automatisch angeklickt",
+  "fortunesWont": "Glückskekse werden nicht automatisch angeklickt",
+  "fortuneClicked": "Glückskeks angeklickt!",
+  "fortuneClickedDesc": "Ein Glückskeks wurde automatisch angeklickt"
 }

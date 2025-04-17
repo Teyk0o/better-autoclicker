@@ -70,5 +70,15 @@
   "chocolateEggSaved": "Chocolade-ei gevonden – wordt bewaard voor ascensie",
   "chocolateEggAscensionBought": "Chocolade-ei automatisch gekocht voor ascensie",
   "chocolateEggStrategyExplanationAscension": "Deze strategie zal je Chocolade-ei bewaren voor de ascensie. De mod koopt het ei automatisch net voor je ascendeert om de prestige-winsten te maximaliseren.",
-  "chocolateEggStrategyExplanationImmediate": "Deze strategie zal het Chocolade-ei kopen zodra het beschikbaar is, waardoor je een onmiddellijke koekjesboost krijgt."
+  "chocolateEggStrategyExplanationImmediate": "Deze strategie zal het Chocolade-ei kopen zodra het beschikbaar is, waardoor je een onmiddellijke koekjesboost krijgt.",
+  "latestVersion": "laatste",
+  "updateAvailable": "Update beschikbaar!",
+  "updateAvailableDesc": "Er is een nieuwe versie ({0}) van Better AutoClicker beschikbaar. Herstart het spel om de mod bij te werken.",
+  "fortuneOption": "Gelukskoekjes automatisch klikken",
+  "fortuneEnabled": "Automatisch klikken op gelukskoekjes ingeschakeld",
+  "fortuneDisabled": "Automatisch klikken op gelukskoekjes uitgeschakeld",
+  "fortunesWill": "Gelukskoekjes worden automatisch aangeklikt",
+  "fortunesWont": "Gelukskoekjes worden niet automatisch aangeklikt",
+  "fortuneClicked": "Gelukskoekje aangeklikt!",
+  "fortuneClickedDesc": "Een gelukskoekje is automatisch aangeklikt"
 }
