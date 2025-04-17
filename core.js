@@ -40,6 +40,8 @@ BetterAutoClicker.launch = function() {
     BetterAutoClicker.autoManageChocolateEgg = false;
     BetterAutoClicker.chocolateEggBehavior = 'ascension';
     BetterAutoClicker.chocolateEggCheckInterval = null;
+    BetterAutoClicker.clickFortunes = false;
+    BetterAutoClicker.fortuneCheckInterval = null;
 
     // List of available languages for the selector
     BetterAutoClicker.userLanguage = 'EN';
@@ -405,6 +407,23 @@ BetterAutoClicker.launch = function() {
                             }
                         }
                     }
+                    else if (id === 'fortuneClicking') {
+                        Game.Notify(
+                            this.getText(this[property] ? 'fortuneEnabled' : 'fortuneDisabled'),
+                            this.getText(this[property] ? 'fortunesWill' : 'fortunesWont'),
+                            [0, this[property] ? 2 : 3],
+                            2
+                        );
+
+                        // Démarrer ou arrêter la vérification des fortunes
+                        if (this.isActive) {
+                            if (this[property]) {
+                                this.startFortuneChecker();
+                            } else {
+                                this.stopFortuneChecker();
+                            }
+                        }
+                    }
 
                     this.saveSettings();
 
@@ -586,6 +605,14 @@ BetterAutoClicker.launch = function() {
             // Add the explanation box after the strategy control
             optionsDiv.appendChild(chocolateEggExplanationBox);
 
+            // Option pour les fortunes
+            optionsDiv.appendChild(createToggleButton(
+                'fortuneClicking',
+                'clickFortunes',
+                this.getText('fortuneOption') + ' ' + this.getText('activate'),
+                this.getText('fortuneOption') + ' ' + this.getText('deactivate')
+            ));
+
             // Language options section
             let langBox = document.createElement("div");
             langBox.className = "listing";
@@ -750,6 +777,57 @@ BetterAutoClicker.launch = function() {
     };
 
     /**
+     * Démarre la vérification périodique des fortunes dans le fil d'actualités
+     */
+    BetterAutoClicker.startFortuneChecker = function() {
+        if (this.fortuneCheckInterval) {
+            clearInterval(this.fortuneCheckInterval);
+        }
+
+        const self = this;
+        // Vérifier les fortunes toutes les 500 ms
+        this.fortuneCheckInterval = setInterval(function() {
+            self.checkForFortunes();
+        }, 500);
+    };
+
+    /**
+     * Arrête la vérification des fortunes
+     */
+    BetterAutoClicker.stopFortuneChecker = function() {
+        if (this.fortuneCheckInterval) {
+            clearInterval(this.fortuneCheckInterval);
+            this.fortuneCheckInterval = null;
+        }
+    };
+
+    /**
+     * Vérifie s'il y a une fortune dans le fil d'actualités et clique dessus
+     */
+    BetterAutoClicker.checkForFortunes = function() {
+        // Vérifier si la mise à niveau "Fortune cookies" est débloquée
+        if (!Game.Has('Fortune cookies')) return;
+
+        // Obtenir l'élément du ticker
+        const ticker = document.getElementById('commentsText');
+        if (!ticker) return;
+
+        // Vérifier si le ticker contient une fortune (apparaît en vert avec une icône de fortune)
+        if (ticker.querySelector('.fortune')) {
+            // Cliquer sur le ticker pour activer la fortune
+            ticker.click();
+
+            // Notification
+            Game.Notify(
+                this.getText('fortuneClicked'),
+                this.getText('fortuneClickedDesc'),
+                [0, 2],
+                2
+            );
+        }
+    };
+
+    /**
      * Sell all buildings
      */
     BetterAutoClicker.sellAllBuildings = function() {
@@ -799,6 +877,11 @@ BetterAutoClicker.launch = function() {
                 this.startChocolateEggChecker();
             }
 
+            // Also start the fortune checker if enabled
+            if (this.clickFortunes) {
+                this.startFortuneChecker();
+            }
+
             if (toggleButton) {
                 toggleButton.textContent = this.getText('deactivate');
                 toggleButton.style.background = '#CC0000';
@@ -826,6 +909,9 @@ BetterAutoClicker.launch = function() {
 
             // Also stop the chocolate egg checker
             this.stopChocolateEggChecker();
+
+            // Also stop the fortune checker
+            this.stopFortuneChecker();
 
             if (toggleButton) {
                 toggleButton.textContent = this.getText('activate');
@@ -1132,7 +1218,8 @@ BetterAutoClicker.launch = function() {
             wrinklerClickDelay: this.wrinklerClickDelay,
             clickSeasonalCookies: this.clickSeasonalCookies,
             autoManageChocolateEgg: this.autoManageChocolateEgg,
-            chocolateEggBehavior: this.chocolateEggBehavior
+            chocolateEggBehavior: this.chocolateEggBehavior,
+            clickFortunes: this.clickFortunes
         });
     };
 
@@ -1152,7 +1239,8 @@ BetterAutoClicker.launch = function() {
             wrinklerClickDelay: this.wrinklerClickDelay,
             clickSeasonalCookies: this.clickSeasonalCookies,
             autoManageChocolateEgg: this.autoManageChocolateEgg,
-            chocolateEggBehavior: this.chocolateEggBehavior
+            chocolateEggBehavior: this.chocolateEggBehavior,
+            clickFortunes: this.clickFortunes
         };
 
         localStorage.setItem('betterAutoClickerSettings', JSON.stringify(data));
@@ -1207,6 +1295,9 @@ BetterAutoClicker.launch = function() {
                 }
                 if (config.hasOwnProperty('chocolateEggBehavior')) {
                     this.chocolateEggBehavior = config.chocolateEggBehavior;
+                }
+                if (config.hasOwnProperty('clickFortunes')) {
+                    this.clickFortunes = config.clickFortunes;
                 }
             }
 
