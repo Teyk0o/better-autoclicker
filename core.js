@@ -21,6 +21,17 @@ BetterAutoClicker.version = "1.0";
 BetterAutoClicker.GameVersion = "2.052";
 
 BetterAutoClicker.launch = function() {
+
+    fetch('https://api.github.com/repos/Teyk0o/better-autoclicker/tags')
+        .then(response => response.json())
+        .then(data => {
+            if (data && data.length > 0) {
+                // Update the version number at startup
+                BetterAutoClicker.version = data[0].name.replace('v', '');
+            }
+        })
+        .catch(error => console.error('Erreur de vérification de version:', error));
+
     // Configuration variables
     BetterAutoClicker.clicksPerSecond = 10;
     BetterAutoClicker.isActive = false;
@@ -61,6 +72,30 @@ BetterAutoClicker.launch = function() {
         {code: 'KO', name: '한국어'},
         {code: 'RU', name: 'Русский'}
     ];
+
+    /**
+     * Check the latest version of the mod on GitHub
+     */
+    BetterAutoClicker.checkLatestVersion = function() {
+        // Update the version element in the game
+        const versionElement = document.getElementById('autoClickerVersion');
+        if (versionElement) {
+            // Check if the latest version is different from the current version
+            if (cleanLatestTag !== this.version) {
+                versionElement.textContent = 'v' + this.version + ' (' + this.getText('latestVersion') + ': ' + latestTag + ')';
+                versionElement.style.color = '#FFA500'; // Orange if an update is available
+                // Notification to inform the user about the update
+                Game.Notify(
+                    this.getText('updateAvailable'),
+                    this.formatString(this.getText('updateAvailableDesc'), latestTag),
+                    [16, 5],
+                    10 // Display for 10 seconds because it's important
+                );
+            } else {
+                versionElement.textContent = 'v' + this.version;
+            }
+        }
+    };
 
     /**
      * Load the language file from the CDN
@@ -210,11 +245,28 @@ BetterAutoClicker.launch = function() {
             box.style.marginBottom = "15px";
 
             // Section title
+            let titleContainer = document.createElement("div");
+            titleContainer.style.display = "flex";
+            titleContainer.style.alignItems = "center";
+            titleContainer.style.marginBottom = "5px";
+
             let title = document.createElement("div");
             title.className = "title";
-            title.style.marginBottom = "5px";
             title.textContent = this.getText('betterAutoClickerOptions');
-            box.appendChild(title);
+            titleContainer.appendChild(title);
+
+            let versionText = document.createElement("span");
+            versionText.id = "autoClickerVersion";
+            versionText.textContent = "v" + this.version;
+            versionText.style.marginLeft = "10px";
+            versionText.style.fontSize = "0.8em";
+            versionText.style.opacity = "0.8";
+            versionText.style.color = "#CCC";
+            titleContainer.appendChild(versionText);
+
+            box.appendChild(titleContainer);
+
+            this.checkLatestVersion();
 
             // Activation button using game style
             let toggleButton = document.createElement('a');
