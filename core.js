@@ -32,6 +32,7 @@ BetterAutoClicker.launch = function() {
     BetterAutoClicker.clickGoldenCookies = true;
     BetterAutoClicker.clickWrathCookies = false;
     BetterAutoClicker.goldenCheckInterval = null;
+    BetterAutoClicker.goldenCheckIntervalTime = 50;
     BetterAutoClicker.clickWrinklers = false;
     BetterAutoClicker.wrinklerClickDelay = 1000;
     BetterAutoClicker.wrinklerCheckInterval = null;
@@ -415,7 +416,6 @@ BetterAutoClicker.launch = function() {
                             2
                         );
 
-                        // Démarrer ou arrêter la vérification des fortunes
                         if (this.isActive) {
                             if (this[property]) {
                                 this.startFortuneChecker();
@@ -777,7 +777,7 @@ BetterAutoClicker.launch = function() {
     };
 
     /**
-     * Démarre la vérification périodique des fortunes dans le fil d'actualités
+     * Start periodic checking for fortunes
      */
     BetterAutoClicker.startFortuneChecker = function() {
         if (this.fortuneCheckInterval) {
@@ -785,14 +785,13 @@ BetterAutoClicker.launch = function() {
         }
 
         const self = this;
-        // Vérifier les fortunes toutes les 500 ms
         this.fortuneCheckInterval = setInterval(function() {
             self.checkForFortunes();
         }, 500);
     };
 
     /**
-     * Arrête la vérification des fortunes
+     * Stop checking for fortunes
      */
     BetterAutoClicker.stopFortuneChecker = function() {
         if (this.fortuneCheckInterval) {
@@ -802,19 +801,19 @@ BetterAutoClicker.launch = function() {
     };
 
     /**
-     * Vérifie s'il y a une fortune dans le fil d'actualités et clique dessus
+     * Check for fortunes in the ticker
      */
     BetterAutoClicker.checkForFortunes = function() {
-        // Vérifier si la mise à niveau "Fortune cookies" est débloquée
+        // Check if the game has the "Fortune cookies" upgrade
         if (!Game.Has('Fortune cookies')) return;
 
-        // Obtenir l'élément du ticker
+        // Check if the fortune ticker is present
         const ticker = document.getElementById('commentsText');
         if (!ticker) return;
 
-        // Vérifier si le ticker contient une fortune (apparaît en vert avec une icône de fortune)
+        // Check if the fortune is present in the ticker
         if (ticker.querySelector('.fortune')) {
-            // Cliquer sur le ticker pour activer la fortune
+            // Click on the fortune
             ticker.click();
 
             // Notification
@@ -962,10 +961,9 @@ BetterAutoClicker.launch = function() {
         }
 
         const self = this;
-        // Check for golden cookies every 500 ms
         this.goldenCheckInterval = setInterval(function() {
             self.checkForSpecialCookies();
-        }, 500);
+        }, this.goldenCheckIntervalTime);
     };
 
     /**
