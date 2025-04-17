@@ -102,7 +102,7 @@ BetterAutoClicker.launch = function() {
      * @param langCode
      */
     BetterAutoClicker.loadLanguageFile = function(langCode) {
-        const langUrl = `https://cdn.jsdelivr.net/gh/Teyk0o/better-autoclicker@master/lang/${langCode.toLowerCase()}.json`;
+        const langUrl = `https://raw.githack.com/Teyk0o/better-autoclicker/master/lang/${langCode.toLowerCase()}.json`;
 
         // Fetch the language file on the CDN
         fetch(langUrl)
