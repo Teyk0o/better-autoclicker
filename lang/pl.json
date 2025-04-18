@@ -6,6 +6,8 @@
   "goldenCookieOption": "Auto-klik złotych ciasteczek",
   "activate": "Aktywuj",
   "deactivate": "Dezaktywuj",
+  "active": "Aktywny",
+  "inactive": "Nieaktywny",
   "keyboardHint": "Naciśnij A, aby przełączyć",
   "modLoaded": "Mod Better AutoClicker załadowany!",
   "modLoadedDesc": "Z centrowanymi animacjami na ciastku",

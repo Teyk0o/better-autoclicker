@@ -6,6 +6,8 @@
   "goldenCookieOption": "Auto-klik gouden koekjes",
   "activate": "Activeren",
   "deactivate": "Deactiveren",
+  "active": "Actief",
+  "inactive": "Inactief",
   "keyboardHint": "Druk op A om te schakelen",
   "modLoaded": "Better AutoClicker mod geladen!",
   "modLoadedDesc": "Met gecentreerde animaties op de cookie",

@@ -6,6 +6,8 @@
   "goldenCookieOption": "Auto-clicar cookies dourados",
   "activate": "Ativar",
   "deactivate": "Desativar",
+  "active": "Ativo",
+  "inactive": "Inativo",
   "keyboardHint": "Pressione A para alternar",
   "modLoaded": "Mod Better AutoClicker carregado!",
   "modLoadedDesc": "Com animações centralizadas no cookie",

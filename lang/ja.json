@@ -6,6 +6,8 @@
   "goldenCookieOption": "ゴールデンクッキー自動クリック",
   "activate": "有効化",
   "deactivate": "無効化",
+  "active": "有効",
+  "inactive": "無効",
   "keyboardHint": "Aキーで切り替え",
   "modLoaded": "Better AutoClicker Mod読み込み完了！",
   "modLoadedDesc": "クッキー中央のアニメーション付き",

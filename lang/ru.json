@@ -6,6 +6,8 @@
   "goldenCookieOption": "Авто-клик золотых печений",
   "activate": "Активировать",
   "deactivate": "Деактивировать",
+  "active": "Активен",
+  "inactive": "Неактивен",
   "keyboardHint": "Нажмите A для переключения",
   "modLoaded": "Мод Better AutoClicker загружен!",
   "modLoadedDesc": "С центрированными анимациями на печенье",

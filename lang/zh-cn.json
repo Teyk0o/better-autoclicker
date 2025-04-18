@@ -6,6 +6,8 @@
   "goldenCookieOption": "自动点击黄金饼干",
   "activate": "激活",
   "deactivate": "停用",
+  "active": "已激活",
+  "inactive": "未激活",
   "keyboardHint": "按A键切换",
   "modLoaded": "Better AutoClicker Mod已加载！",
   "modLoadedDesc": "带有饼干居中动画",

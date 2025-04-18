@@ -490,40 +490,40 @@ BetterAutoClicker.launch = function() {
             optionsDiv.appendChild(createToggleButton(
                 'backgroundClicking',
                 'clicksInBackground',
-                this.getText('backgroundOption') + ' ' + this.getText('activate'),
-                this.getText('backgroundOption') + ' ' + this.getText('deactivate')
+                this.getText('backgroundOption') + ' ' + this.getText('active'),
+                this.getText('backgroundOption') + ' ' + this.getText('inactive')
             ));
 
             // Option for centering animations
             optionsDiv.appendChild(createToggleButton(
                 'centerAnimations',
                 'centerAnimations',
-                this.getText('centerOption') + ' ' + this.getText('activate'),
-                this.getText('centerOption') + ' ' + this.getText('deactivate')
+                this.getText('centerOption') + ' ' + this.getText('active'),
+                this.getText('centerOption') + ' ' + this.getText('inactive')
             ));
 
             // Option for golden cookies
             optionsDiv.appendChild(createToggleButton(
                 'goldenCookieClicking',
                 'clickGoldenCookies',
-                this.getText('goldenCookieOption') + ' ' + this.getText('activate'),
-                this.getText('goldenCookieOption') + ' ' + this.getText('deactivate')
+                this.getText('goldenCookieOption') + ' ' + this.getText('active'),
+                this.getText('goldenCookieOption') + ' ' + this.getText('inactive')
             ));
 
             // Option for wrath cookies
             optionsDiv.appendChild(createToggleButton(
                 'wrathCookieClicking',
                 'clickWrathCookies',
-                this.getText('wrathCookieOption') + ' ' + this.getText('activate'),
-                this.getText('wrathCookieOption') + ' ' + this.getText('deactivate')
+                this.getText('wrathCookieOption') + ' ' + this.getText('active'),
+                this.getText('wrathCookieOption') + ' ' + this.getText('inactive')
             ));
 
             // Option for Wrinklers
             optionsDiv.appendChild(createToggleButton(
                 'wrinklerClicking',
                 'clickWrinklers',
-                this.getText('wrinklerOption') + ' ' + this.getText('activate'),
-                this.getText('wrinklerOption') + ' ' + this.getText('deactivate')
+                this.getText('wrinklerOption') + ' ' + this.getText('active'),
+                this.getText('wrinklerOption') + ' ' + this.getText('inactive')
             ));
 
             // Control for Wrinkler click delay
@@ -568,16 +568,16 @@ BetterAutoClicker.launch = function() {
             optionsDiv.appendChild(createToggleButton(
                 'seasonalCookieClicking',
                 'clickSeasonalCookies',
-                this.getText('seasonalCookieOption') + ' ' + this.getText('activate'),
-                this.getText('seasonalCookieOption') + ' ' + this.getText('deactivate')
+                this.getText('seasonalCookieOption') + ' ' + this.getText('active'),
+                this.getText('seasonalCookieOption') + ' ' + this.getText('inactive')
             ));
 
             // Option for chocolate egg
             optionsDiv.appendChild(createToggleButton(
                 'chocolateEggOption',
                 'autoManageChocolateEgg',
-                this.getText('chocolateEggOption') + ' ' + this.getText('activate'),
-                this.getText('chocolateEggOption') + ' ' + this.getText('deactivate')
+                this.getText('chocolateEggOption') + ' ' + this.getText('active'),
+                this.getText('chocolateEggOption') + ' ' + this.getText('inactive')
             ));
 
             // Control for Chocolate Egg strategy

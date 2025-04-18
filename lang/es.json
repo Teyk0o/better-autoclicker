@@ -6,6 +6,8 @@
   "goldenCookieOption": "Auto-clic galletas doradas",
   "activate": "Activar",
   "deactivate": "Desactivar",
+  "active": "Activo",
+  "inactive": "Inactivo",
   "keyboardHint": "Presiona A para alternar",
   "modLoaded": "¡Mod Better AutoClicker cargado!",
   "modLoadedDesc": "Con animaciones centradas en la galleta",

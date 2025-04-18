@@ -6,6 +6,8 @@
   "goldenCookieOption": "황금 쿠키 자동 클릭",
   "activate": "활성화",
   "deactivate": "비활성화",
+  "active": "활성화됨",
+  "inactive": "비활성화됨",
   "keyboardHint": "A키를 눌러 전환",
   "modLoaded": "Better AutoClicker 모드 로드됨!",
   "modLoadedDesc": "쿠키 중앙에 애니메이션 효과",

@@ -6,6 +6,8 @@
   "goldenCookieOption": "Auto-click golden cookies",
   "activate": "Activate",
   "deactivate": "Deactivate",
+  "active": "Active",
+  "inactive": "Inactive",
   "keyboardHint": "Press A to toggle",
   "modLoaded": "Better AutoClicker mod loaded!",
   "modLoadedDesc": "With centered animations on the cookie",

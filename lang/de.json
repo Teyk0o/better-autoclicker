@@ -6,6 +6,8 @@
   "goldenCookieOption": "Auto-Klick goldene Kekse",
   "activate": "Aktivieren",
   "deactivate": "Deaktivieren",
+  "active": "Aktiv",
+  "inactive": "Inaktiv",
   "keyboardHint": "Drücke A zum Umschalten",
   "modLoaded": "Better AutoClicker-Mod geladen!",
   "modLoadedDesc": "Mit zentrierten Animationen auf dem Keks",
