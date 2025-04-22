@@ -1,6 +1,7 @@
 {
   "modTitle": "Better AutoClicker",
   "clicksPerSecond": "Click al secondo:",
+  "notificationsOption": "Notifiche della mod",
   "backgroundOption": "Click in background",
   "centerOption": "Animazioni centrate",
   "goldenCookieOption": "Auto-click biscotti dorati",

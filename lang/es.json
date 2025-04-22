@@ -1,6 +1,7 @@
 {
   "modTitle": "Better AutoClicker",
   "clicksPerSecond": "Clics por segundo:",
+  "notificationsOption": "Notificaciones del mod",
   "backgroundOption": "Clic en segundo plano",
   "centerOption": "Animaciones centradas",
   "goldenCookieOption": "Auto-clic galletas doradas",

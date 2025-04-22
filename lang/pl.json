@@ -1,6 +1,7 @@
 {
   "modTitle": "Better AutoClicker",
   "clicksPerSecond": "Kliknięć na sekundę:",
+  "notificationsOption": "Powiadomienia moda",
   "backgroundOption": "Klikanie w tle",
   "centerOption": "Centrowane animacje",
   "goldenCookieOption": "Auto-klik złotych ciasteczek",

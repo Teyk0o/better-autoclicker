@@ -1,6 +1,7 @@
 {
   "modTitle": "Better AutoClicker",
   "clicksPerSecond": "초당 클릭 수:",
+  "notificationsOption": "모드 알림",
   "backgroundOption": "백그라운드에서 클릭",
   "centerOption": "중앙 정렬 애니메이션",
   "goldenCookieOption": "황금 쿠키 자동 클릭",

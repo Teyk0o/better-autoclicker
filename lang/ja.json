@@ -1,6 +1,7 @@
 {
   "modTitle": "Better AutoClicker",
   "clicksPerSecond": "毎秒クリック数：",
+  "notificationsOption": "MOD通知",
   "backgroundOption": "バックグラウンドでクリック",
   "centerOption": "中央寄せアニメーション",
   "goldenCookieOption": "ゴールデンクッキー自動クリック",

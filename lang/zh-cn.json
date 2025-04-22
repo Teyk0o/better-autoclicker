@@ -1,6 +1,7 @@
 {
   "modTitle": "Better AutoClicker",
   "clicksPerSecond": "每秒点击次数：",
+  "notificationsOption": "模组通知",
   "backgroundOption": "后台点击",
   "centerOption": "居中动画",
   "goldenCookieOption": "自动点击黄金饼干",

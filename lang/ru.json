@@ -1,6 +1,7 @@
 {
   "modTitle": "Better AutoClicker",
   "clicksPerSecond": "Кликов в секунду:",
+  "notificationsOption": "Уведомления мода",
   "backgroundOption": "Клик в фоновом режиме",
   "centerOption": "Центрированные анимации",
   "goldenCookieOption": "Авто-клик золотых печений",

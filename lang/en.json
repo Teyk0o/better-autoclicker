@@ -1,6 +1,7 @@
 {
   "modTitle": "Better AutoClicker",
   "clicksPerSecond": "Clicks per second:",
+  "notificationsOption": "Mod notifications",
   "backgroundOption": "Click in background",
   "centerOption": "Centered animations",
   "goldenCookieOption": "Auto-click golden cookies",

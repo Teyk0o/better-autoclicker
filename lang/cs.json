@@ -1,6 +1,7 @@
 {
   "modTitle": "Better AutoClicker",
   "clicksPerSecond": "Kliknutí za sekundu:",
+  "notificationsOption": "Oznámení modifikace",
   "backgroundOption": "Klikat na pozadí",
   "centerOption": "Centrované animace",
   "goldenCookieOption": "Auto-klik na zlaté sušenky",
