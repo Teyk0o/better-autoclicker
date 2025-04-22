@@ -201,6 +201,17 @@ BetterAutoClicker.launch = function() {
     };
 
     /**
+     * Initialize the functionalities of the mod depending on the user's settings
+     */
+    BetterAutoClicker.initFunctionalities = function() {
+        this.updateGoldenCookieChecker();
+        this.updateWrinklerChecker();
+        this.updateChocolateEggChecker();
+        this.updateFortuneChecker();
+        this.updateSpecialCookieChecker();
+    };
+
+    /**
      * Retrieves a translation by its key in the current language
      */
     BetterAutoClicker.getText = function(key) {
@@ -384,14 +395,7 @@ BetterAutoClicker.launch = function() {
                             2
                         );
 
-                        // Start or stop golden cookie checking
-                        if (this.isActive) {
-                            if (this[property]) {
-                                this.startGoldenCookieChecker();
-                            } else {
-                                this.stopGoldenCookieChecker();
-                            }
-                        }
+                        this.updateGoldenCookieChecker();
                     }
                     else if (id === 'wrathCookieClicking') {
                         Game.Notify(
@@ -409,14 +413,7 @@ BetterAutoClicker.launch = function() {
                             2
                         );
 
-                        // Start or stop Wrinkler checking
-                        if (this.isActive) {
-                            if (this[property]) {
-                                this.startWrinklerChecker();
-                            } else {
-                                this.stopWrinklerChecker();
-                            }
-                        }
+                        this.updateWrinklerChecker();
 
                         // Show/hide delay control based on button state
                         wrinklerDelayControl.style.display = this[property] ? 'block' : 'none';
@@ -429,14 +426,7 @@ BetterAutoClicker.launch = function() {
                             2
                         );
 
-                        // Start or stop seasonal cookie checking
-                        if (this.isActive) {
-                            if (this[property]) {
-                                this.startSpecialCookieChecker();
-                            } else {
-                                this.stopSpecialCookieChecker();
-                            }
-                        }
+                        this.updateSpecialCookieChecker();
                     }
                     else if (id === 'chocolateEggOption') {
                         const newState = this[property];
@@ -451,14 +441,7 @@ BetterAutoClicker.launch = function() {
                             2
                         );
 
-                        // Start or stop chocolate egg checking
-                        if (this.isActive) {
-                            if (newState) {
-                                this.startChocolateEggChecker();
-                            } else {
-                                this.stopChocolateEggChecker();
-                            }
-                        }
+                        this.updateChocolateEggChecker();
                     }
                     else if (id === 'fortuneClicking') {
                         Game.Notify(
@@ -468,13 +451,7 @@ BetterAutoClicker.launch = function() {
                             2
                         );
 
-                        if (this.isActive) {
-                            if (this[property]) {
-                                this.startFortuneChecker();
-                            } else {
-                                this.stopFortuneChecker();
-                            }
-                        }
+                        this.updateFortuneChecker();
                     }
 
                     this.saveSettings();
@@ -913,32 +890,13 @@ BetterAutoClicker.launch = function() {
 
         if (this.isActive) {
             this.startAutoClicker();
-            // Also start the golden cookie checker if enabled
-            if (this.clickGoldenCookies) {
-                this.startGoldenCookieChecker();
-            }
-
-            // Also start the Wrinkler checker if enabled
-            if (this.clickWrinklers) {
-                this.startWrinklerChecker();
-            }
-
-            // Also start the chocolate egg checker if enabled
-            if (this.autoManageChocolateEgg) {
-                this.startChocolateEggChecker();
-            }
-
-            // Also start the fortune checker if enabled
-            if (this.clickFortunes) {
-                this.startFortuneChecker();
-            }
 
             if (toggleButton) {
                 toggleButton.textContent = this.getText('deactivate');
                 toggleButton.style.background = '#CC0000';
             }
 
-            // Notification with information on mode and state
+            // Notification avec informations sur le mode et l'état
             const backgroundState = this.clicksInBackground ? this.getText('backgroundWill') : this.getText('backgroundWont');
             Game.Notify(
                 this.getText('autoClickerEnabled'),
@@ -952,17 +910,6 @@ BetterAutoClicker.launch = function() {
             );
         } else {
             this.stopAutoClicker();
-            // Also stop the golden cookie checker
-            this.stopGoldenCookieChecker();
-
-            // Also stop the Wrinkler checker
-            this.stopWrinklerChecker();
-
-            // Also stop the chocolate egg checker
-            this.stopChocolateEggChecker();
-
-            // Also stop the fortune checker
-            this.stopFortuneChecker();
 
             if (toggleButton) {
                 toggleButton.textContent = this.getText('activate');
@@ -976,6 +923,49 @@ BetterAutoClicker.launch = function() {
             );
         }
         this.saveSettings();
+    };
+
+    /**
+     * Update the auto-clicker settings based on user preferences
+     */
+    BetterAutoClicker.updateGoldenCookieChecker = function() {
+        if (this.clickGoldenCookies) {
+            this.startGoldenCookieChecker();
+        } else {
+            this.stopGoldenCookieChecker();
+        }
+    };
+
+    BetterAutoClicker.updateWrinklerChecker = function() {
+        if (this.clickWrinklers) {
+            this.startWrinklerChecker();
+        } else {
+            this.stopWrinklerChecker();
+        }
+    };
+
+    BetterAutoClicker.updateChocolateEggChecker = function() {
+        if (this.autoManageChocolateEgg) {
+            this.startChocolateEggChecker();
+        } else {
+            this.stopChocolateEggChecker();
+        }
+    };
+
+    BetterAutoClicker.updateFortuneChecker = function() {
+        if (this.clickFortunes) {
+            this.startFortuneChecker();
+        } else {
+            this.stopFortuneChecker();
+        }
+    };
+
+    BetterAutoClicker.updateSpecialCookieChecker = function() {
+        if (this.clickSeasonalCookies) {
+            this.startSpecialCookieChecker();
+        } else {
+            this.stopSpecialCookieChecker();
+        }
     };
 
     /**
@@ -1350,6 +1340,8 @@ BetterAutoClicker.launch = function() {
                     this.clickFortunes = config.clickFortunes;
                 }
             }
+
+            this.initFunctionalities();
 
             // Load the auto-clicker state
             const wasActive = (localStorage.getItem('betterAutoClickerSettings') ? JSON.parse(localStorage.getItem('betterAutoClickerSettings')).isActive : false);
