@@ -33,6 +33,7 @@ BetterAutoClicker.launch = function() {
         .catch(error => console.error('Erreur de vérification de version:', error));
 
     // Configuration variables
+    BetterAutoClicker.STORAGE_KEY = 'BetterAutoClickerSettings';
     BetterAutoClicker.showNotifications = true;
     BetterAutoClicker.clicksPerSecond = 10;
     BetterAutoClicker.isActive = false;
@@ -296,8 +297,6 @@ BetterAutoClicker.launch = function() {
                 toggleButton.textContent = this.isActive ?
                     this.getText('deactivate') :
                     this.getText('activate');
-
-                Game.PlaySound('snd/tick.mp3');
             });
 
             let toggleDiv = document.createElement('div');
@@ -457,8 +456,6 @@ BetterAutoClicker.launch = function() {
                     }
 
                     this.saveSettings();
-
-                    Game.PlaySound('snd/tick.mp3');
                 });
 
                 buttonDiv.appendChild(button);
@@ -1324,12 +1321,7 @@ BetterAutoClicker.launch = function() {
             clickFortunes: this.clickFortunes
         };
 
-        localStorage.setItem('betterAutoClickerSettings', JSON.stringify(data));
-
-        // Toujours essayer la méthode standard aussi
-        if (!Game.customSave) Game.customSave = {};
-        Game.customSave['betterautoclicker'] = this.save();
-        Game.WriteSave(1);
+        localStorage.setItem(this.STORAGE_KEY, JSON.stringify(data));
     };
 
     /**
@@ -1339,7 +1331,7 @@ BetterAutoClicker.launch = function() {
      */
     BetterAutoClicker.load = function(str) {
         try {
-            const localData = localStorage.getItem('betterAutoClickerSettings');
+            const localData = localStorage.getItem(this.STORAGE_KEY);
             if (localData) {
                 const config = JSON.parse(localData);
 
@@ -1388,10 +1380,8 @@ BetterAutoClicker.launch = function() {
                 }
             }
 
-            this.initFunctionalities();
-
             // Load the auto-clicker state
-            const wasActive = (localStorage.getItem('betterAutoClickerSettings') ? JSON.parse(localStorage.getItem('betterAutoClickerSettings')).isActive : false);
+            const wasActive = (localStorage.getItem(this.STORAGE_KEY) ? JSON.parse(localStorage.getItem(this.STORAGE_KEY)).isActive : false);
 
             if (wasActive) {
                 // Start the auto-clicker if it was active with delay to ensure the game is ready
@@ -1420,7 +1410,7 @@ BetterAutoClicker.launch = function() {
         BetterAutoClicker.injectGameOptions();
 
         // Initialization notification
-        this.notify(
+        Game.Notify(
             BetterAutoClicker.getText('modLoaded'),
             BetterAutoClicker.getText('modLoadedDesc'),
             [16, 5]
@@ -1428,7 +1418,10 @@ BetterAutoClicker.launch = function() {
 
         // Load saved settings
         BetterAutoClicker.load();
-    }, 1000);
+
+        BetterAutoClicker.initFunctionalities();
+
+    }, 200);
 
     // Set isLoaded flag when initialization is complete
     BetterAutoClicker.isLoaded = 1;
