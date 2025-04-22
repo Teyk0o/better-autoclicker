@@ -50,6 +50,7 @@
   "wrinklerClickDelay": "Prodleva kliknutí:",
   "wrinklerDelayChanged": "Prodleva kliknutí na Vráskavce změněna",
   "wrinklerDelayChangedDesc": "Prodleva mezi kliknutími nastavena na {0} ms",
+  "preserveShinyOption": "Zachovat lesklé vrásky",
   "seasonalCookieOption": "Automatické klikání na sezónní speciály",
   "seasonalCookieEnabled": "Automatické klikání na sezónní speciály je zapnuto",
   "seasonalCookieDisabled": "Automatické klikání na sezónní speciály je vypnuto",

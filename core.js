@@ -47,6 +47,7 @@ BetterAutoClicker.launch = function() {
     BetterAutoClicker.clickWrinklers = false;
     BetterAutoClicker.wrinklerClickDelay = 1000;
     BetterAutoClicker.wrinklerCheckInterval = null;
+    BetterAutoClicker.preserveShinyWrinklers = true;
     BetterAutoClicker.clickSeasonalCookies = true;
     BetterAutoClicker.seasonalCheckInterval = null;
     BetterAutoClicker.autoManageChocolateEgg = false;
@@ -501,6 +502,14 @@ BetterAutoClicker.launch = function() {
                 'clickWrinklers',
                 this.getText('wrinklerOption') + ' ' + this.getText('active'),
                 this.getText('wrinklerOption') + ' ' + this.getText('inactive')
+            ));
+
+            // Option for preserving shiny Wrinklers
+            optionsDiv.appendChild(createToggleButton(
+                'preserveShinyWrinklers',
+                'preserveShinyWrinklers',
+                this.getText('preserveShinyOption') + ' ' + this.getText('active'),
+                this.getText('preserveShinyOption') + ' ' + this.getText('inactive')
             ));
 
             // Control for Wrinkler click delay
@@ -1132,6 +1141,11 @@ BetterAutoClicker.launch = function() {
                 let wrinkler = Game.wrinklers[i];
                 // Check if the Wrinkler is fully appeared (phase 2) and has cookies
                 if (wrinkler.phase === 2 && wrinkler.sucked > 0) {
+
+                    if (wrinkler.type === 1 && this.preserveShinyWrinklers) {
+                        continue; // Skip shiny Wrinklers if the option is enabled
+                    }
+
                     // Instead of clicking on it, pop it directly
                     this.popWrinklerDirectly(i);
                     // Only process one Wrinkler at a time
@@ -1256,6 +1270,7 @@ BetterAutoClicker.launch = function() {
             clickWrathCookies: this.clickWrathCookies,
             clickWrinklers: this.clickWrinklers,
             wrinklerClickDelay: this.wrinklerClickDelay,
+            preserveShinyWrinklers: this.preserveShinyWrinklers,
             clickSeasonalCookies: this.clickSeasonalCookies,
             autoManageChocolateEgg: this.autoManageChocolateEgg,
             chocolateEggBehavior: this.chocolateEggBehavior,
@@ -1277,6 +1292,7 @@ BetterAutoClicker.launch = function() {
             clickWrathCookies: this.clickWrathCookies,
             clickWrinklers: this.clickWrinklers,
             wrinklerClickDelay: this.wrinklerClickDelay,
+            preserveShinyWrinklers: this.preserveShinyWrinklers,
             clickSeasonalCookies: this.clickSeasonalCookies,
             autoManageChocolateEgg: this.autoManageChocolateEgg,
             chocolateEggBehavior: this.chocolateEggBehavior,
@@ -1326,6 +1342,9 @@ BetterAutoClicker.launch = function() {
                 }
                 if (config.hasOwnProperty('wrinklerClickDelay')) {
                     this.wrinklerClickDelay = config.wrinklerClickDelay;
+                }
+                if (config.hasOwnProperty('preserveShinyWrinklers')) {
+                    this.preserveShinyWrinklers = config.preserveShinyWrinklers;
                 }
                 if (config.hasOwnProperty('clickSeasonalCookies')) {
                     this.clickSeasonalCookies = config.clickSeasonalCookies;

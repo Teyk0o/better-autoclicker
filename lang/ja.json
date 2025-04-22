@@ -50,6 +50,7 @@
   "wrinklerClickDelay": "クリック遅延：",
   "wrinklerDelayChanged": "リンクラークリック遅延が変更されました",
   "wrinklerDelayChangedDesc": "クリック間の遅延が {0} ミリ秒に設定されました",
+  "preserveShinyOption": "光るしわしわを保存する",
   "seasonalCookieOption": "季節限定スペシャルを自動クリック",
   "seasonalCookieEnabled": "季節限定スペシャルの自動クリックが有効",
   "seasonalCookieDisabled": "季節限定スペシャルの自動クリックが無効",

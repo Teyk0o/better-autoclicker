@@ -50,6 +50,7 @@
   "wrinklerClickDelay": "Klikvertraging:",
   "wrinklerDelayChanged": "Rimpeler klikvertraging gewijzigd",
   "wrinklerDelayChangedDesc": "Vertraging tussen klikken ingesteld op {0} ms",
+  "preserveShinyOption": "Glanzende rimpels behouden",
   "seasonalCookieOption": "Auto-klik op seizoensgebonden specials",
   "seasonalCookieEnabled": "Auto-klik op seizoensgebonden specials ingeschakeld",
   "seasonalCookieDisabled": "Auto-klik op seizoensgebonden specials uitgeschakeld",

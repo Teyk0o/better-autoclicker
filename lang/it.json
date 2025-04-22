@@ -50,6 +50,7 @@
   "wrinklerClickDelay": "Ritardo di clic:",
   "wrinklerDelayChanged": "Ritardo di clic dei Rugosi modificato",
   "wrinklerDelayChangedDesc": "Ritardo tra i clic impostato a {0} ms",
+  "preserveShinyOption": "Preserva gli avvizziti lucenti",
   "seasonalCookieOption": "Auto-click sugli speciali stagionali",
   "seasonalCookieEnabled": "Auto-click sugli speciali stagionali attivato",
   "seasonalCookieDisabled": "Auto-click sugli speciali stagionali disattivato",

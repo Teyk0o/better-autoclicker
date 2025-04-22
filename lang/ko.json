@@ -50,6 +50,7 @@
   "wrinklerClickDelay": "클릭 지연:",
   "wrinklerDelayChanged": "주름벌레 클릭 지연이 변경되었습니다",
   "wrinklerDelayChangedDesc": "클릭 사이의 지연이 {0}ms로 설정되었습니다",
+  "preserveShinyOption": "빛나는 주름벌레 보존",
   "seasonalCookieOption": "계절 특수 아이템 자동 클릭",
   "seasonalCookieEnabled": "계절 특수 아이템 자동 클릭 활성화됨",
   "seasonalCookieDisabled": "계절 특수 아이템 자동 클릭 비활성화됨",

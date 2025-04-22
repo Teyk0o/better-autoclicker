@@ -50,6 +50,7 @@
   "wrinklerClickDelay": "Délai entre clics :",
   "wrinklerDelayChanged": "Délai des clics de rideux modifié",
   "wrinklerDelayChangedDesc": "Délai entre les clics défini à {0} ms",
+  "preserveShinyOption": "Préserver les rideux brillants",
   "seasonalCookieOption": "Auto-clic sur les spéciaux saisonniers",
   "seasonalCookieEnabled": "Auto-clic des spéciaux saisonniers activé",
   "seasonalCookieDisabled": "Auto-clic des spéciaux saisonniers désactivé",

@@ -50,6 +50,7 @@
   "wrinklerClickDelay": "Click delay:",
   "wrinklerDelayChanged": "Wrinkler click delay changed",
   "wrinklerDelayChangedDesc": "Delay between clicks set to {0} ms",
+  "preserveShinyOption": "Preserve shiny wrinklers",
   "seasonalCookieOption": "Auto-click seasonal specials",
   "seasonalCookieEnabled": "Seasonal specials auto-click enabled",
   "seasonalCookieDisabled": "Seasonal specials auto-click disabled",
