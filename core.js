@@ -837,7 +837,7 @@ BetterAutoClicker.launch = function() {
         if (!Game.Has('Fortune cookies')) return;
 
         // Check if the fortune ticker is present
-        const ticker = document.getElementById('commentsText');
+        const ticker = Game.tickerL;
         if (!ticker) return;
 
         // Check if the fortune is present in the ticker
