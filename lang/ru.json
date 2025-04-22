@@ -1,6 +1,7 @@
 {
   "modTitle": "Better AutoClicker",
   "clicksPerSecond": "Кликов в секунду:",
+  "notificationsOption": "Уведомления мода",
   "backgroundOption": "Клик в фоновом режиме",
   "centerOption": "Центрированные анимации",
   "goldenCookieOption": "Авто-клик золотых печений",
@@ -50,6 +51,7 @@
   "wrinklerClickDelay": "Задержка клика:",
   "wrinklerDelayChanged": "Задержка клика по Морщунам изменена",
   "wrinklerDelayChangedDesc": "Задержка между кликами установлена на {0} мс",
+  "preserveShinyOption": "Сохранять блестящих сморщиков",
   "seasonalCookieOption": "Автоклик по сезонным объектам",
   "seasonalCookieEnabled": "Автоклик по сезонным объектам включен",
   "seasonalCookieDisabled": "Автоклик по сезонным объектам отключен",

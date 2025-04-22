@@ -1,6 +1,7 @@
 {
   "modTitle": "Better AutoClicker",
   "clicksPerSecond": "Klicks pro Sekunde:",
+  "notificationsOption": "Mod-Benachrichtigungen",
   "backgroundOption": "Im Hintergrund klicken",
   "centerOption": "Zentrierte Animationen",
   "goldenCookieOption": "Auto-Klick goldene Kekse",
@@ -50,6 +51,7 @@
   "wrinklerClickDelay": "Klick-Verzögerung:",
   "wrinklerDelayChanged": "Falter-Klick-Verzögerung geändert",
   "wrinklerDelayChangedDesc": "Verzögerung zwischen Klicks auf {0} ms gesetzt",
+  "preserveShinyOption": "Glänzende Schrumpel bewahren",
   "seasonalCookieOption": "Automatischer Klick auf saisonale Spezialobjekte",
   "seasonalCookieEnabled": "Automatischer Klick auf saisonale Spezialobjekte aktiviert",
   "seasonalCookieDisabled": "Automatischer Klick auf saisonale Spezialobjekte deaktiviert",

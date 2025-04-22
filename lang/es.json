@@ -1,6 +1,7 @@
 {
   "modTitle": "Better AutoClicker",
   "clicksPerSecond": "Clics por segundo:",
+  "notificationsOption": "Notificaciones del mod",
   "backgroundOption": "Clic en segundo plano",
   "centerOption": "Animaciones centradas",
   "goldenCookieOption": "Auto-clic galletas doradas",
@@ -50,6 +51,7 @@
   "wrinklerClickDelay": "Retardo de clic:",
   "wrinklerDelayChanged": "Retardo de clic de Arrugadores cambiado",
   "wrinklerDelayChangedDesc": "Retardo entre clics establecido en {0} ms",
+  "preserveShinyOption": "Conservar arrugados brillantes",
   "seasonalCookieOption": "Auto-clic en los especiales de temporada",
   "seasonalCookieEnabled": "Auto-clic en especiales de temporada activado",
   "seasonalCookieDisabled": "Auto-clic en especiales de temporada desactivado",

@@ -1,6 +1,7 @@
 {
   "modTitle": "Better AutoClicker",
   "clicksPerSecond": "每秒点击次数：",
+  "notificationsOption": "模组通知",
   "backgroundOption": "后台点击",
   "centerOption": "居中动画",
   "goldenCookieOption": "自动点击黄金饼干",
@@ -50,6 +51,7 @@
   "wrinklerClickDelay": "点击延迟：",
   "wrinklerDelayChanged": "皱纹怪点击延迟已更改",
   "wrinklerDelayChangedDesc": "点击间隔设置为 {0} 毫秒",
+  "preserveShinyOption": "保留闪亮的皱皱虫",
   "seasonalCookieOption": "自动点击季节性特殊项目",
   "seasonalCookieEnabled": "已启用自动点击季节性特殊项目",
   "seasonalCookieDisabled": "已禁用自动点击季节性特殊项目",

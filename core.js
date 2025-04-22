@@ -33,6 +33,7 @@ BetterAutoClicker.launch = function() {
         .catch(error => console.error('Erreur de vérification de version:', error));
 
     // Configuration variables
+    BetterAutoClicker.showNotifications = true;
     BetterAutoClicker.clicksPerSecond = 10;
     BetterAutoClicker.isActive = false;
     BetterAutoClicker.clickInterval = null;
@@ -47,6 +48,7 @@ BetterAutoClicker.launch = function() {
     BetterAutoClicker.clickWrinklers = false;
     BetterAutoClicker.wrinklerClickDelay = 1000;
     BetterAutoClicker.wrinklerCheckInterval = null;
+    BetterAutoClicker.preserveShinyWrinklers = true;
     BetterAutoClicker.clickSeasonalCookies = true;
     BetterAutoClicker.seasonalCheckInterval = null;
     BetterAutoClicker.autoManageChocolateEgg = false;
@@ -85,7 +87,7 @@ BetterAutoClicker.launch = function() {
                 versionElement.textContent = 'v' + this.version + ' (' + this.getText('latestVersion') + ': ' + latestTag + ')';
                 versionElement.style.color = '#FFA500'; // Orange if an update is available
                 // Notification to inform the user about the update
-                Game.Notify(
+                this.notify(
                     this.getText('updateAvailable'),
                     this.formatString(this.getText('updateAvailableDesc'), latestTag),
                     [16, 5],
@@ -180,7 +182,7 @@ BetterAutoClicker.launch = function() {
             this.updateUILanguage();
 
             // Notification de changement de langue
-            Game.Notify(
+            this.notify(
                 this.getText('languageChanged'),
                 this.getText('languageInfo'),
                 [16, 5],
@@ -370,7 +372,7 @@ BetterAutoClicker.launch = function() {
 
                     // Handle specific actions for each option
                     if (id === 'backgroundClicking') {
-                        Game.Notify(
+                        this.notify(
                             this.getText(this[property] ? 'backgroundEnabled' : 'backgroundDisabled'),
                             this.getText(this[property] ? 'backgroundWill' : 'backgroundWont') + ' ' +
                             this.getText('backgroundWhenInactive'),
@@ -379,7 +381,7 @@ BetterAutoClicker.launch = function() {
                         );
                     }
                     else if (id === 'centerAnimations') {
-                        Game.Notify(
+                        this.notify(
                             this.getText(this[property] ? 'animationsEnabled' : 'animationsDisabled'),
                             this.getText(this[property] ? 'animationsWill' : 'animationsWont') + ' ' +
                             this.getText('atCookieCenter'),
@@ -388,7 +390,7 @@ BetterAutoClicker.launch = function() {
                         );
                     }
                     else if (id === 'goldenCookieClicking') {
-                        Game.Notify(
+                        this.notify(
                             this.getText(this[property] ? 'goldenCookieEnabled' : 'goldenCookieDisabled'),
                             this.getText(this[property] ? 'goldenCookiesWill' : 'goldenCookiesWont'),
                             [0, this[property] ? 2 : 3],
@@ -398,7 +400,7 @@ BetterAutoClicker.launch = function() {
                         this.updateGoldenCookieChecker();
                     }
                     else if (id === 'wrathCookieClicking') {
-                        Game.Notify(
+                        this.notify(
                             this.getText(this[property] ? 'wrathCookieEnabled' : 'wrathCookieDisabled'),
                             this.getText(this[property] ? 'wrathCookiesWill' : 'wrathCookiesWont'),
                             [0, this[property] ? 2 : 3],
@@ -406,7 +408,7 @@ BetterAutoClicker.launch = function() {
                         );
                     }
                     else if (id === 'wrinklerClicking') {
-                        Game.Notify(
+                        this.notify(
                             this.getText(this[property] ? 'wrinklerClickEnabled' : 'wrinklerClickDisabled'),
                             this.getText(this[property] ? 'wrinklersWill' : 'wrinklersWont'),
                             [0, this[property] ? 2 : 3],
@@ -419,7 +421,7 @@ BetterAutoClicker.launch = function() {
                         wrinklerDelayControl.style.display = this[property] ? 'block' : 'none';
                     }
                     else if (id === 'seasonalCookieClicking') {
-                        Game.Notify(
+                        this.notify(
                             this.getText(this[property] ? 'seasonalCookieEnabled' : 'seasonalCookieDisabled'),
                             this.getText(this[property] ? 'seasonalCookiesWill' : 'seasonalCookiesWont'),
                             [0, this[property] ? 2 : 3],
@@ -434,7 +436,7 @@ BetterAutoClicker.launch = function() {
                         chocolateEggStrategyControl.style.display = newState ? 'block' : 'none';
                         chocolateEggExplanationBox.style.display = newState ? 'block' : 'none';
 
-                        Game.Notify(
+                        this.notify(
                             this.getText(newState ? 'chocolateEggEnabled' : 'chocolateEggDisabled'),
                             this.getText(this.chocolateEggBehavior === 'ascension' ? 'chocolateEggWillSave' : 'chocolateEggWillBuy'),
                             [0, newState ? 2 : 3],
@@ -444,7 +446,7 @@ BetterAutoClicker.launch = function() {
                         this.updateChocolateEggChecker();
                     }
                     else if (id === 'fortuneClicking') {
-                        Game.Notify(
+                        this.notify(
                             this.getText(this[property] ? 'fortuneEnabled' : 'fortuneDisabled'),
                             this.getText(this[property] ? 'fortunesWill' : 'fortunesWont'),
                             [0, this[property] ? 2 : 3],
@@ -462,6 +464,14 @@ BetterAutoClicker.launch = function() {
                 buttonDiv.appendChild(button);
                 return buttonDiv;
             };
+
+            // Option for notifications
+            optionsDiv.appendChild(createToggleButton(
+                'notificationsOption',
+                'showNotifications',
+                this.getText('notificationsOption') + ' ' + this.getText('active'),
+                this.getText('notificationsOption') + ' ' + this.getText('inactive')
+            ));
 
             // Option for background clicking
             optionsDiv.appendChild(createToggleButton(
@@ -503,6 +513,14 @@ BetterAutoClicker.launch = function() {
                 this.getText('wrinklerOption') + ' ' + this.getText('inactive')
             ));
 
+            // Option for preserving shiny Wrinklers
+            optionsDiv.appendChild(createToggleButton(
+                'preserveShinyWrinklers',
+                'preserveShinyWrinklers',
+                this.getText('preserveShinyOption') + ' ' + this.getText('active'),
+                this.getText('preserveShinyOption') + ' ' + this.getText('inactive')
+            ));
+
             // Control for Wrinkler click delay
             let wrinklerDelayControl = document.createElement('div');
             wrinklerDelayControl.className = 'listing';
@@ -528,7 +546,7 @@ BetterAutoClicker.launch = function() {
                 const newDelay = parseInt(wrinklerDelayInput.value, 10);
                 if (newDelay >= 100 && newDelay <= 5000) {
                     this.wrinklerClickDelay = newDelay;
-                    Game.Notify(
+                    this.notify(
                         this.getText('wrinklerDelayChanged'),
                         this.formatString(this.getText('wrinklerDelayChangedDesc'), this.wrinklerClickDelay),
                         [0, 2],
@@ -599,7 +617,7 @@ BetterAutoClicker.launch = function() {
                         'chocolateEggStrategyExplanationImmediate');
                 }
 
-                Game.Notify(
+                this.notify(
                     this.getText('chocolateEggOption'),
                     this.getText(this.chocolateEggBehavior === 'ascension' ? 'chocolateEggWillSave' : 'chocolateEggWillBuy'),
                     [0, 2],
@@ -762,7 +780,7 @@ BetterAutoClicker.launch = function() {
                 // Check if we can buy the chocolate egg
                 if (Game.cookies >= chocolateEgg.getPrice()) {
                     chocolateEgg.buy(true);
-                    Game.Notify(
+                    this.notify(
                         this.getText('chocolateEggBought'),
                         '',
                         [22, 12], // Icon for egg
@@ -771,7 +789,7 @@ BetterAutoClicker.launch = function() {
                 }
             } else {
                 // Strategy is 'ascension', show a notification to advise the user
-                Game.Notify(
+                this.notify(
                     this.getText('chocolateEggSaved'),
                     '',
                     [22, 12],
@@ -794,7 +812,7 @@ BetterAutoClicker.launch = function() {
                 // Buy the chocolate egg if we have enough cookies
                 if (Game.cookies >= chocolateEgg.getPrice()) {
                     chocolateEgg.buy(true);
-                    Game.Notify(
+                    this.notify(
                         this.getText('chocolateEggAscensionBought'),
                         '',
                         [22, 12],
@@ -846,7 +864,7 @@ BetterAutoClicker.launch = function() {
             ticker.click();
 
             // Notification
-            Game.Notify(
+            this.notify(
                 this.getText('fortuneClicked'),
                 this.getText('fortuneClickedDesc'),
                 [0, 2],
@@ -898,7 +916,7 @@ BetterAutoClicker.launch = function() {
 
             // Notification avec informations sur le mode et l'état
             const backgroundState = this.clicksInBackground ? this.getText('backgroundWill') : this.getText('backgroundWont');
-            Game.Notify(
+            this.notify(
                 this.getText('autoClickerEnabled'),
                 this.formatString(
                     this.getText('clicksPerSecDisplay'),
@@ -915,7 +933,7 @@ BetterAutoClicker.launch = function() {
                 toggleButton.textContent = this.getText('activate');
                 toggleButton.style.background = '#5C4317';
             }
-            Game.Notify(
+            this.notify(
                 this.getText('autoClickerDisabled'),
                 this.getText('autoClickerDisabledDesc'),
                 [0, 3],
@@ -1057,7 +1075,7 @@ BetterAutoClicker.launch = function() {
                     if (shimmer.wrath > 0) {
                         if (this.clickWrathCookies) {
                             shimmer.pop();
-                            Game.Notify(
+                            this.notify(
                                 this.getText('wrathCookieClicked'),
                                 '',
                                 [15, 5], // Wrath cookie icon
@@ -1070,7 +1088,7 @@ BetterAutoClicker.launch = function() {
                     else if (shimmer.wrath === 0 && this.clickGoldenCookies) {
                         // Cookie doré normal
                         shimmer.pop();
-                        Game.Notify(
+                        this.notify(
                             this.getText('goldenCookieClicked'),
                             '',
                             [10, 14],
@@ -1082,7 +1100,7 @@ BetterAutoClicker.launch = function() {
                 // Check if it's a seasonal cookie (like reindeer for Christmas)
                 else if (shimmer.type === 'reindeer' && this.clickSeasonalCookies) {
                     shimmer.pop();
-                    Game.Notify(
+                    this.notify(
                         this.getText('seasonalCookieClicked'),
                         this.getText('christmasReindeerClicked'),
                         [12, 9],
@@ -1132,6 +1150,11 @@ BetterAutoClicker.launch = function() {
                 let wrinkler = Game.wrinklers[i];
                 // Check if the Wrinkler is fully appeared (phase 2) and has cookies
                 if (wrinkler.phase === 2 && wrinkler.sucked > 0) {
+
+                    if (wrinkler.type === 1 && this.preserveShinyWrinklers) {
+                        continue; // Skip shiny Wrinklers if the option is enabled
+                    }
+
                     // Instead of clicking on it, pop it directly
                     this.popWrinklerDirectly(i);
                     // Only process one Wrinkler at a time
@@ -1156,7 +1179,7 @@ BetterAutoClicker.launch = function() {
 
             // Notification
             const cookiesGained = sucked > 0 ? (": " + Beautify(sucked) + " cookies") : "";
-            Game.Notify(
+            this.notify(
                 this.getText('wrinklerPopped'),
                 this.getText('wrinklerPoppedDesc') + cookiesGained,
                 [19, 8], // Wrinkler icon
@@ -1240,6 +1263,20 @@ BetterAutoClicker.launch = function() {
     };
 
     /**
+     * Function to display a notification
+     * @param title
+     * @param desc
+     * @param icon
+     * @param time
+     */
+    BetterAutoClicker.notify = function(title, desc, icon, time) {
+        // Check if the notification system is enabled
+        if (!this.showNotifications) return;
+
+        Game.Notify(title, desc, icon, time);
+    };
+
+    /**
      * Function to save mod parameters
      * This function is called by the game when saving state
      * @returns {string} Data serialized as JSON
@@ -1249,6 +1286,7 @@ BetterAutoClicker.launch = function() {
         return JSON.stringify({
             clicksPerSecond: this.clicksPerSecond,
             isActive: this.isActive,
+            showNotifications: this.showNotifications,
             clicksInBackground: this.clicksInBackground,
             centerAnimations: this.centerAnimations,
             userLanguage: this.userLanguage,
@@ -1256,6 +1294,7 @@ BetterAutoClicker.launch = function() {
             clickWrathCookies: this.clickWrathCookies,
             clickWrinklers: this.clickWrinklers,
             wrinklerClickDelay: this.wrinklerClickDelay,
+            preserveShinyWrinklers: this.preserveShinyWrinklers,
             clickSeasonalCookies: this.clickSeasonalCookies,
             autoManageChocolateEgg: this.autoManageChocolateEgg,
             chocolateEggBehavior: this.chocolateEggBehavior,
@@ -1270,6 +1309,7 @@ BetterAutoClicker.launch = function() {
         const data = {
             clicksPerSecond: this.clicksPerSecond,
             isActive: this.isActive,
+            showNotifications: this.showNotifications,
             clicksInBackground: this.clicksInBackground,
             centerAnimations: this.centerAnimations,
             userLanguage: this.userLanguage,
@@ -1277,6 +1317,7 @@ BetterAutoClicker.launch = function() {
             clickWrathCookies: this.clickWrathCookies,
             clickWrinklers: this.clickWrinklers,
             wrinklerClickDelay: this.wrinklerClickDelay,
+            preserveShinyWrinklers: this.preserveShinyWrinklers,
             clickSeasonalCookies: this.clickSeasonalCookies,
             autoManageChocolateEgg: this.autoManageChocolateEgg,
             chocolateEggBehavior: this.chocolateEggBehavior,
@@ -1304,6 +1345,9 @@ BetterAutoClicker.launch = function() {
 
                 // Load options
                 this.clicksPerSecond = config.clicksPerSecond || 10;
+                if (config.hasOwnProperty('showNotifications')) {
+                    this.showNotifications = config.showNotifications;
+                }
                 if (config.hasOwnProperty('clicksInBackground')) {
                     this.clicksInBackground = config.clicksInBackground;
                 }
@@ -1326,6 +1370,9 @@ BetterAutoClicker.launch = function() {
                 }
                 if (config.hasOwnProperty('wrinklerClickDelay')) {
                     this.wrinklerClickDelay = config.wrinklerClickDelay;
+                }
+                if (config.hasOwnProperty('preserveShinyWrinklers')) {
+                    this.preserveShinyWrinklers = config.preserveShinyWrinklers;
                 }
                 if (config.hasOwnProperty('clickSeasonalCookies')) {
                     this.clickSeasonalCookies = config.clickSeasonalCookies;
@@ -1373,7 +1420,7 @@ BetterAutoClicker.launch = function() {
         BetterAutoClicker.injectGameOptions();
 
         // Initialization notification
-        Game.Notify(
+        this.notify(
             BetterAutoClicker.getText('modLoaded'),
             BetterAutoClicker.getText('modLoadedDesc'),
             [16, 5]

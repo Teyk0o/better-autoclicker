@@ -1,6 +1,7 @@
 {
   "modTitle": "Better AutoClicker",
   "clicksPerSecond": "Kliknięć na sekundę:",
+  "notificationsOption": "Powiadomienia moda",
   "backgroundOption": "Klikanie w tle",
   "centerOption": "Centrowane animacje",
   "goldenCookieOption": "Auto-klik złotych ciasteczek",
@@ -50,6 +51,7 @@
   "wrinklerClickDelay": "Opóźnienie kliknięcia:",
   "wrinklerDelayChanged": "Zmieniono opóźnienie kliknięcia Pomarszczacza",
   "wrinklerDelayChangedDesc": "Opóźnienie między kliknięciami ustawione na {0} ms",
+  "preserveShinyOption": "Zachowaj błyszczące zmarszczki",
   "seasonalCookieOption": "Auto-klik na sezonowe specjalności",
   "seasonalCookieEnabled": "Auto-klik na sezonowe specjalności włączony",
   "seasonalCookieDisabled": "Auto-klik na sezonowe specjalności wyłączony",
