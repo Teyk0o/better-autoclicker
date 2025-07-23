@@ -1,5 +1,7 @@
 ![Banner](assets/github_banner.png)
 
+[DISCONTINUED]
+
 An enhanced auto-clicker mod for Cookie Clicker with advanced features for a smoother gameplay experience.
 
 ## Features
